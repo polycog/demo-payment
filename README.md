@@ -8,8 +8,9 @@
 **A neurosymbolic agent: the LLM interprets, and the symbolic system makes decisions.**
 
 A payments assistant built with [`cognition`](https://github.com/polycog/cognition).
-In a terminal conversation, it verifies the customer, shows their payment plan, and changes the
-amount, date or payment card, but only after the customer says yes.
+It verifies the customer, shows their payment plan, and helps them change the
+amount, date or payment card, and authenticates with the method required by the bank. 
+Agent's actions are computationally guaranteed to never violate the banks's policy.
 
 It splits the work between two kinds of reasoning:
 
