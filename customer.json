@@ -1,0 +1,32 @@
+{
+  "name": "Sam Lee",
+  "account_number": "4417-2290-0381",
+  "cards": [
+    {
+      "id": "card1",
+      "kind": "credit",
+      "network": "Visa",
+      "last_four": "4242",
+      "payment_limit": "5000.00"
+    },
+    {
+      "id": "card2",
+      "kind": "debit",
+      "network": "Mastercard",
+      "last_four": "5454",
+      "payment_limit": "1500.00"
+    },
+    {
+      "id": "card3",
+      "kind": "debit",
+      "network": "Visa",
+      "last_four": "1881",
+      "payment_limit": "10000.00"
+    }
+  ],
+  "plan": {
+    "amount": "200.00",
+    "card_id": "card2",
+    "payment_date": "2026-11-22"
+  }
+}

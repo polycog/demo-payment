@@ -1,0 +1,23 @@
+# Payment-plan assistant configuration
+
+customer_file = "customer.json"       # the account holder (relative to this file)
+
+[llm]
+use = "local"                        # which profile below ("local" or "openai")
+
+# With base_url set, `model` is sent to that OpenAI-compatible server (e.g. LM Studio).
+[llm.profiles.local]
+model = "openai/gpt-oss-20b"
+base_url = "http://localhost:1234/v1"
+api_key_env = "PAYMENTS_LLM_API_KEY" # local servers don't need a key
+responses = true                     # use the Responses API instead of Chat Completions
+
+# Without base_url, `model` is any pydantic-ai model id; "openai:" reads OPENAI_API_KEY.
+[llm.profiles.openai]
+model = "openai:gpt-4o"
+
+[policy]
+max_amount = "10000.00"              # largest allowed payment amount
+date_window_days = 30                # payments may be scheduled from tomorrow up to this many days out
+max_verification_attempts = 3        # tries to restate the account number before the session ends
+authenticate_debit_limit_over = "5000.00"  # switching to a debit card with a higher limit needs extra authentication
