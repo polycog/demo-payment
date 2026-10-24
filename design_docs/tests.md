@@ -46,7 +46,8 @@ instantiates.
 - **Data and backend:** immutability, a plan for the wrong account or card, loading
   `customer.json` (relative and fixed dates, invalid files), unique card ids, the backend's own
   policy check, changes without authentication.
-- **Saving:** the `account_file` fixture copies `customer.json` to a temp folder. Amount and card
+- **Saving:** the `account_file` fixture writes an account file for the tests' customer to a temp folder
+  (not a copy of `customer.json`, so drifted demo data can't break it). Amount and card
   changes are saved and keep `payment_in_days`; a date change is saved as a fixed date; a refused
   change writes nothing; a whole conversation saves its change and leaves no temp file.
 

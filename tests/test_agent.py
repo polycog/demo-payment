@@ -11,7 +11,6 @@ import json
 from collections import deque
 from datetime import date
 from decimal import Decimal
-from pathlib import Path
 from unittest.mock import patch
 
 import pytest
@@ -550,10 +549,13 @@ def test_invalid_customer_file_rejected(tmp_path) -> None:
 
 @pytest.fixture
 def account_file(tmp_path):
-    """A copy of the shipped customer.json, and the service that saves to it"""
+    """An account file for the tests' customer (independent of the shipped customer.json), and the service
+    that saves to it"""
 
     path = tmp_path / "customer.json"
-    path.write_text((Path(__file__).resolve().parent.parent / "customer.json").read_text())
+    path.write_text(
+        CUSTOMER.model_dump_json()[:-1] + ', "plan": {"amount": "250.00", "payment_in_days": 14, "card_id": "card2"}}'
+    )
     return path, BankPaymentService.from_file(path, today=lambda: TODAY, authenticate=lambda _: True)
 
 

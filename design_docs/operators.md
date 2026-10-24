@@ -6,6 +6,8 @@ The decision process: independent WHEN/THEN rules. Each cycle every operator who
 proposed, and the one with the lowest `Priority` runs. There is no hard-coded flow: what happens
 next follows from the state.
 
+![The decision process, operator by operator, with tool calls to the bank payment service](figures/decision-process.svg)
+
 ## Priority levels
 
 | Level | Operators | Why it outranks the next |
@@ -117,5 +119,6 @@ ACT     wrap_up                    → "Is there anything else I can help with?"
 ## Extending
 
 Write the WHEN/THEN docstring first, pick the level whose members it can never co-occur with
-(add a level only for a real overlap, and document why), register it in `agent.py`, and add a
-test per path. The shared skill at `~/polycog/skills/cognition-operators` has the full checklist.
+(add a level only for a real overlap, and document why), register it in `agent.py`, add a
+test per path, and redraw the figure (`uv run python design_docs/figures/draw.py`, after editing
+its card in `draw.py`). The shared skill at `~/polycog/skills/cognition-operators` has the full checklist.

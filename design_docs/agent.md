@@ -39,6 +39,10 @@ closes the session. Returns the final state (useful in tests).
 
 ## Design decisions
 
+- **Imports point one way,** so each layer can be read and tested on its own:
+  `config ← policy ← bank_payment_service ← language ← state ← operators ← agent ← __main__`
+  (and `console ← operators`).
+
 - **Dependencies come in as arguments** (console, payment system, clock), and the LLM is built
   inside `Interpret`, so tests can replace every external piece.
 - **The payment system is reached only through sensors and actuators.** Operators can't call it
