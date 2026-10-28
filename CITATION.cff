@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Payments assistant"
+abstract: >-
+  A neurosymbolic payments assistant built with the cognition library. It verifies the customer, shows
+  their payment plan, and helps them change the amount, date or payment card, authenticating them with
+  the method the bank requires.
+authors:
+  - given-names: Shiwali
+    family-names: Mohan
+    affiliation: "Polycog, Inc."
+  - given-names: Nate
+    family-names: Derbinsky
+    affiliation: "Polycog, Inc."
+  - name: "Polycog, Inc."
+version: 0.1.0
+date-released: 2026-10-23
+license: Apache-2.0
+repository-code: "https://github.com/polycog/demo-payment"
+keywords:
+  - neurosymbolic
+  - conversational agents
+  - banking
+  - strong customer authentication
+  - polycog cognition

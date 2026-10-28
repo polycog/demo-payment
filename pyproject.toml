@@ -4,6 +4,11 @@ version = "0.1.0"
 description = "CLI assistant that shows and changes a payment plan, built on polycog-cognition"
 requires-python = ">=3.13"
 license = "Apache-2.0"
+authors = [
+    { name = "Shiwali Mohan" },
+    { name = "Nate Derbinsky" },
+    { name = "Polycog, Inc." },
+]
 dependencies = [
     "polycog-cognition==1.0.2",
     "pydantic-ai-slim[openai]~=2.56.0",
