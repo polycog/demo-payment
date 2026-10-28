@@ -1,4 +1,4 @@
-# Technical Solution
+# Technical Approach
 
 This demo is a conversational agent built with [`cognition`](https://github.com/polycog/cognition), a library for building neurosymbolic agents. It addresses the problem described in the [use case](usecase.md): giving a banking customer a frictionless experience while complying fully with the bank's policies.
 

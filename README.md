@@ -13,7 +13,7 @@ A **neurosymbolic** payments assistant built with the [`cognition`](https://gith
 
 1. [Summary](#1-summary)
 2. [Problem Statement](#2-problem-statement)
-3. [Technical Solution and Demo](#3-technical-solution-and-demo)
+3. [Technical Approach and Demo](#3-technical-approach-and-demo)
 4. [Install, Run, and Test](#4-install-run-and-test)
 5. [License and Disclaimers](#5-license-and-disclaimers)
 
@@ -27,9 +27,9 @@ See [the full problem statement and opportunity](docs/usecase.md).
 
 ---
 
-## 3. Technical Solution and Demo
+## 3. Technical Approach and Demo
 
-Like a careful bank agent, the assistant follows the bank's procedures to the letter, while letting the customer speak naturally. An LLM only interprets what the customer types, turning it into structured proposals: the change they want, any amount, date or card, and their yes or no. Symbolic WHEN/THEN operators, written with `cognition`, decide everything else: they verify the customer, check each change against the payment policy, require extra authentication only when a change calls for it, and ask for a yes before acting through the APIs of a simulated bank payment service. With no LLM in these decisions, the same state always leads to the same action, and every step can be traced. See [the technical solution](docs/solution.md) for details.
+Like a careful bank agent, the assistant follows the bank's procedures to the letter, while letting the customer speak naturally. An LLM only interprets what the customer types, turning it into structured proposals: the change they want, any amount, date or card, and their yes or no. Symbolic WHEN/THEN operators, written with `cognition`, decide everything else: they verify the customer, check each change against the payment policy, require extra authentication only when a change calls for it, and ask for a yes before acting through the APIs of a simulated bank payment service. With no LLM in these decisions, the same state always leads to the same action, and every step can be traced. See [the technical approach](docs/approach.md) for details.
 
 **Demo:** [watch the assistant verify a customer and change their payment plan](https://drive.google.com/file/d/1-BZmGtRpowki8eMzQMdGZUuYepCaSUcr/view?usp=sharing)
 
