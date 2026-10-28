@@ -5,86 +5,98 @@
 [![Built with cognition](https://img.shields.io/badge/cognition-inside-7b2fbe?labelColor=f3effa&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjIgMCAzNiAzNiIgZmlsbD0ibm9uZSI+PHBvbHlnb24gcG9pbnRzPSIyMCw0IDM0LjMsMTQuNCAyOC44LDMxLjYgMTEuMiwzMS42IDUuNywxNC40IiBzdHJva2U9IiM3YjJmYmUiIHN0cm9rZS13aWR0aD0iMi4yIi8+PGcgc3Ryb2tlPSIjYzQ3ZDIwIiBzdHJva2Utd2lkdGg9IjIiPjxsaW5lIHgxPSIyMCIgeTE9IjIwIiB4Mj0iMjAiIHkyPSI0Ii8+PGxpbmUgeDE9IjIwIiB5MT0iMjAiIHgyPSIzNC4zIiB5Mj0iMTQuNCIvPjxsaW5lIHgxPSIyMCIgeTE9IjIwIiB4Mj0iMjguOCIgeTI9IjMxLjYiLz48bGluZSB4MT0iMjAiIHkxPSIyMCIgeDI9IjExLjIiIHkyPSIzMS42Ii8+PGxpbmUgeDE9IjIwIiB5MT0iMjAiIHgyPSI1LjciIHkyPSIxNC40Ii8+PC9nPjxnIGZpbGw9IiM3YjJmYmUiPjxjaXJjbGUgY3g9IjIwIiBjeT0iNCIgcj0iMy4yIi8+PGNpcmNsZSBjeD0iMzQuMyIgY3k9IjE0LjQiIHI9IjMuMiIvPjxjaXJjbGUgY3g9IjI4LjgiIGN5PSIzMS42IiByPSIzLjIiLz48Y2lyY2xlIGN4PSIxMS4yIiBjeT0iMzEuNiIgcj0iMy4yIi8+PGNpcmNsZSBjeD0iNS43IiBjeT0iMTQuNCIgcj0iMy4yIi8+PC9nPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjQuNiIgZmlsbD0iI2M0N2QyMCIvPjwvc3ZnPgo=)](https://github.com/polycog/cognition)
 [![cognition on PyPI](https://img.shields.io/pypi/v/polycog-cognition?label=cognition%20on%20PyPI&color=c47d20&labelColor=f3effa&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjIgMCAzNiAzNiIgZmlsbD0ibm9uZSI+PHBvbHlnb24gcG9pbnRzPSIyMCw0IDM0LjMsMTQuNCAyOC44LDMxLjYgMTEuMiwzMS42IDUuNywxNC40IiBzdHJva2U9IiM3YjJmYmUiIHN0cm9rZS13aWR0aD0iMi4yIi8+PGcgc3Ryb2tlPSIjYzQ3ZDIwIiBzdHJva2Utd2lkdGg9IjIiPjxsaW5lIHgxPSIyMCIgeTE9IjIwIiB4Mj0iMjAiIHkyPSI0Ii8+PGxpbmUgeDE9IjIwIiB5MT0iMjAiIHgyPSIzNC4zIiB5Mj0iMTQuNCIvPjxsaW5lIHgxPSIyMCIgeTE9IjIwIiB4Mj0iMjguOCIgeTI9IjMxLjYiLz48bGluZSB4MT0iMjAiIHkxPSIyMCIgeDI9IjExLjIiIHkyPSIzMS42Ii8+PGxpbmUgeDE9IjIwIiB5MT0iMjAiIHgyPSI1LjciIHkyPSIxNC40Ii8+PC9nPjxnIGZpbGw9IiM3YjJmYmUiPjxjaXJjbGUgY3g9IjIwIiBjeT0iNCIgcj0iMy4yIi8+PGNpcmNsZSBjeD0iMzQuMyIgY3k9IjE0LjQiIHI9IjMuMiIvPjxjaXJjbGUgY3g9IjI4LjgiIGN5PSIzMS42IiByPSIzLjIiLz48Y2lyY2xlIGN4PSIxMS4yIiBjeT0iMzEuNiIgcj0iMy4yIi8+PGNpcmNsZSBjeD0iNS43IiBjeT0iMTQuNCIgcj0iMy4yIi8+PC9nPjxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjQuNiIgZmlsbD0iI2M0N2QyMCIvPjwvc3ZnPgo=)](https://pypi.org/project/polycog-cognition/)
 
-**A neurosymbolic agent: the LLM interprets, and the symbolic system makes decisions.**
+## 1. Summary
 
-A payments assistant built with [`cognition`](https://github.com/polycog/cognition).
-It verifies the customer, shows their payment plan, and helps them change the
-amount, date or payment card, and authenticates with the method required by the bank. 
-Agent's actions are computationally guaranteed to never violate the banks's policy.
+A **neurosymbolic** payments assistant built with the [`cognition`](https://github.com/polycog/cognition) library. In a terminal conversation, it verifies the customer, shows their payment plan, and helps them change the amount, date or payment card, authenticating them with the method the bank requires. The agent's actions are computationally guaranteed never to violate the bank's policy.
 
-It splits the work between two kinds of reasoning:
+### Contents
 
-- **Neural: understanding language.** An LLM turns what the customer types into structured terms:
-  what they want done, any amount, date or card they mention, and their yes or no. These are only
-  proposals. The LLM never changes the plan, never decides what happens next, and never sees the
-  account number.
-- **Symbolic: deciding and acting.** WHEN/THEN operators, ranked by priority, decide everything
-  else: they verify the customer, check each change against the payment policy, work out what the
-  change needs, and ask for a yes. With no LLM in these steps, the same state always leads to the
-  same action, and every step can be traced.
+1. [Summary](#1-summary)
+2. [Problem Statement](#2-problem-statement)
+3. [Technical Solution and Demo](#3-technical-solution-and-demo)
+4. [Install, Run, and Test](#4-install-run-and-test)
+5. [License and Disclaimers](#5-license-and-disclaimers)
 
-A simulated **bank payment service** is in charge of the customer's records (`customer.json`):
-nothing else reads or writes them. It offers its **APIs as tools** that the agent calls while it
-decides what to do, such as looking up the customer, changing the plan, and authenticating the
-user. See [the bank payment service](design_docs/bank_payment_service.md).
+---
+
+## 2. Problem Statement
+
+Self-service banking tasks, such as reviewing a loan payment plan, moving a payment date or switching the payment card, usually mean navigating nested menus, decoding financial jargon and filling in rigid forms, and customers often give up and call support. An agent could let them simply ask, e.g. *"Can I move my upcoming payment to next Friday?"*, but only if it enforces the bank's policies absolutely: payment limits, scheduling rules, and [Strong Customer Authentication](https://en.wikipedia.org/wiki/Strong_customer_authentication) for high-risk changes, without adding friction to low-risk ones.
+
+See [the full problem statement and opportunity](docs/usecase.md).
+
+---
+
+## 3. Technical Solution and Demo
+
+Like a careful bank agent, the assistant follows the bank's procedures to the letter, while letting the customer speak naturally. An LLM only interprets what the customer types, turning it into structured proposals: the change they want, any amount, date or card, and their yes or no. Symbolic WHEN/THEN operators, written with `cognition`, decide everything else: they verify the customer, check each change against the payment policy, require extra authentication only when a change calls for it, and ask for a yes before acting through the APIs of a simulated bank payment service. With no LLM in these decisions, the same state always leads to the same action, and every step can be traced. See [the technical solution](docs/solution.md) for details.
 
 **Demo:** [watch the assistant verify a customer and change their payment plan](https://drive.google.com/file/d/1-BZmGtRpowki8eMzQMdGZUuYepCaSUcr/view?usp=sharing)
 
-> [!TIP]
-> **The design is documented in [`design_docs/`](design_docs)**, one doc per file: what it does,
-> why it is built that way, and how to extend it. Start with
-> [the decision process](design_docs/operators.md).
+---
 
-## Quick start
+## 4. Install, Run, and Test
 
-**Requirements:** Python 3.13+, [uv](https://docs.astral.sh/uv/), and either a local
-OpenAI-compatible server or an OpenAI API key.
+### 4.1 Clone the repository
+
+```bash
+git clone https://github.com/polycog/demo-payment.git
+cd demo-payment
+```
+
+### 4.2 Install the dependencies
+
+`cognition` requires **Python 3.13 or later**. The project is managed with [uv](https://docs.astral.sh/uv/), which creates the environment and installs everything in [`pyproject.toml`](pyproject.toml):
 
 ```bash
 uv sync
-uv run python -m payments             # add --trace to see which operator runs each cycle
-uv run --group dev pytest             # offline tests: fake LLM, scripted user, no API key needed
 ```
 
-The assistant first asks you to confirm the account number in [`customer.json`](customer.json)
-(`4417-2290-0381`). Then view your plan, or change the amount, date or card, e.g. "move it to the
-20th and make it $75". Each change is put to you as a yes/no question. Switching to a debit card
-with a limit over $5,000 also asks for a key phrase: `neurosymbolic`. Type `quit` to leave.
+This installs:
 
-## Configuration
+- **`polycog-cognition`**, the `cognition` library, published on PyPI under that name;
+- **`pydantic-ai-slim[openai]`**, which `cognition` builds on, with the OpenAI extra for the language model;
+- **`rich`**, for the terminal console.
 
-All settings are in [`config.toml`](config.toml).
+### 4.3 Choose a language model
 
-**Language model.** Choose a profile by setting `use` under `[llm]`:
+All settings are in [`config.toml`](config.toml). Choose a profile by setting `use` under `[llm]`:
 
 | Profile | Model | Needs |
 |---|---|---|
 | `local` (default) | `openai/gpt-oss-20b` | An OpenAI-compatible server at `http://localhost:1234/v1` (such as LM Studio) |
 | `openai` | `gpt-4o` | `OPENAI_API_KEY` |
 
-**Policy.** `[policy]` sets the payment limits and when extra authentication is needed.
+For the `openai` profile, export your key in the shell you run the assistant from, and keep it out of the repository:
 
-**Customer.** `customer_file` (default [`customer.json`](customer.json)) holds the customer, their
-cards and their plan. Confirmed changes are saved back to it; to start over, run
-`git checkout customer.json`.
+```bash
+export OPENAI_API_KEY="sk-..."
+```
 
-## How it works
+`[policy]` sets the payment limits and when extra authentication is needed. `customer_file` (default [`customer.json`](customer.json)) holds the customer, their cards and their plan.
 
-![The decision process, operator by operator, with tool calls to the bank payment service](design_docs/figures/decision-process.svg)
-.
+### 4.4 Run the assistant
 
-For the details, see [`design_docs/`](design_docs):
-[operators](design_docs/operators.md) ·
-[state](design_docs/state.md) ·
-[bank payment service](design_docs/bank_payment_service.md) ·
-[language](design_docs/language.md) ·
-[policy](design_docs/policy.md) ·
-[console](design_docs/console.md) ·
-[agent](design_docs/agent.md) ·
-[config](design_docs/config.md) ·
-[main](design_docs/main.md) ·
-[tests](design_docs/tests.md)
+```bash
+uv run python -m payments             # add --trace to see which operator runs each cycle
+```
 
-## License
+The assistant first asks you to confirm the account number in [`customer.json`](customer.json) (`4417-2290-0381`). Then view your plan, or change the amount, date or card, e.g. "move it to the 20th and make it $75". Each change is put to you as a yes/no question. Switching to a debit card with a limit over $5,000 also asks for a key phrase: `neurosymbolic`. Type `quit` to leave.
 
-Released under the [Apache License 2.0](LICENSE). Copyright (c) 2026 Polycog Inc.
+Confirmed changes are saved back to `customer.json`; to start over, run `git checkout customer.json`.
+
+### 4.5 Run the tests
+
+The test suite uses [pytest](https://docs.pytest.org/) and runs fully offline: it replaces the LLM with a fake and the customer with a scripted user, so it needs no API key and makes no paid calls.
+
+```bash
+uv run --group dev pytest
+```
+
+---
+
+## 5. License and Disclaimers
+
+This project is released under the [Apache License 2.0](LICENSE). Copyright © 2026 Polycog, Inc.
+
+> **Disclaimer:** this project is a technical demonstration of neurosymbolic reasoning. It is not a production banking system, has not been reviewed for use with real accounts or payments, and is not financial advice. The customer in `customer.json` and the bank payment service are fictional.
