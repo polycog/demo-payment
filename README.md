@@ -7,7 +7,7 @@
 
 ## 1. Summary
 
-A **neurosymbolic** payments assistant built with the [`cognition`](https://github.com/polycog/cognition) library. In a terminal conversation, it verifies the customer, shows their payment plan, and helps them change the amount, date or payment card, authenticating them with the method the bank requires. The agent's actions are computationally guaranteed never to violate the bank's policy.
+A **neurosymbolic** payments assistant built with the [`cognition`](https://github.com/polycog/cognition) library. In a conversation, it verifies the customer, shows their payment plan, and helps them change the amount, date or payment card, authenticating them with the method the bank requires. The agent's actions are computationally guaranteed never to violate the bank's policy.
 
 ### Contents
 
