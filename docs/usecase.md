@@ -20,20 +20,25 @@ Agents can transform the customer experience by using reasoning to translate nat
 
 ## Why this needs neurosymbolic AI
 
-### What rules alone can't do
+### Why LLMs can't do this alone
 
-Today's banking apps are rule-based, and that's the source of the friction: every request must be mapped by the customer onto the bank's menus and forms. "Can I move my payment to after payday next week?" means nothing to a form; it needs to be understood as a date change, resolved to a specific date, and checked. Classic intent-and-slot chatbots fail as soon as a customer combines changes ("move it to the 20th and make it $75") or phrases them unexpectedly.
-
-### What an LLM alone can't do
-
-An LLM-based assistant understands the customer, but its policy lives in a prompt, and a prompt is a suggestion, not a constraint:
+LLM-based assistants are the current state of the art for understanding customers in their own words: they can turn "move it to after payday next week" or "move it to the 20th and make it $75" into concrete changes, sparing the customer the menus and forms. But in an LLM-only assistant the bank's policy lives in a prompt, and a prompt is a suggestion, not a constraint:
 
 - **It can be talked out of the policy.** "I'm in a hurry, skip the verification" or "the branch already approved this" can lead it to act without the required authentication.
 - **It can misapply limits,** approving a change just over the allowed amount or outside the scheduling window, especially when several changes come in one message.
 - **It can over- or under-authenticate,** demanding strong authentication for a trivial change, or waiving it for a high-risk one such as switching to a card with a high limit.
 - **Its actions aren't auditable:** a regulator can't be shown why a change was allowed.
 
-### Splitting the work
+Guardrails (filters or validators that check the LLM's messages and API calls) don't close this gap. They act after the LLM has decided, so they can block a wrong action but can't steer the assistant to the right one, and they judge one call at a time while the policy depends on the whole conversation. Nor can they catch a misunderstanding: if a customer first asks for "$75" and later says "actually, $60", and the LLM sends the $75, the call is perfectly valid. Correct behavior can't be added after the fact; the policy has to decide what the assistant does in the first place.
+
+### What symbolic reasoning adds
+
+Adding symbolic reasoning keeps the LLM understanding the customer, and turns the bank's policy into rules that every action must pass:
+
+- **No phrasing can bypass the policy.** The LLM only proposes changes; only the rules can act through the bank's API, and only after an explicit yes.
+- **Limits and scheduling rules are checked exactly,** for every change in a message.
+- **Authentication matches the risk:** strong authentication when a change calls for it, and no extra friction when it doesn't.
+- **Every action is auditable,** traced to the rule that allowed it.
 
 | Neural: understanding the customer | Symbolic: enforcing the bank's policy |
 |---|---|
@@ -41,8 +46,6 @@ An LLM-based assistant understands the customer, but its policy lives in a promp
 | Extract amounts, dates, and cards; read a yes or no | Check every change against limits and scheduling rules |
 | | Require strong authentication only when the change calls for it |
 | | Act through the bank's API only after an explicit yes |
-
-Because no LLM output can call the bank's API directly, no phrasing from the customer can bypass the policy.
 
 ## Impact
 
