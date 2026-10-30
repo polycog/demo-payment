@@ -21,7 +21,7 @@ A **neurosymbolic** payments assistant built with the [`cognition`](https://gith
 
 ## 2. Problem Statement
 
-Self-service banking tasks, such as reviewing a loan payment plan, moving a payment date or switching the payment card, usually mean navigating nested menus, decoding financial jargon and filling in rigid forms, and customers often give up and call support. An agent could let them simply ask, e.g. *"Can I move my upcoming payment to next Friday?"*, but only if it enforces the bank's policies absolutely: payment limits, scheduling rules, and [Strong Customer Authentication](https://en.wikipedia.org/wiki/Strong_customer_authentication) for high-risk changes, without adding friction to low-risk ones.
+Self-service banking tasks, such as reviewing a loan payment plan, moving a payment date or switching the payment card, usually mean navigating nested menus, decoding financial jargon and filling in rigid forms, and customers often give up and call support. Classic chatbots and forms can enforce the bank's policy but can't follow a request like *"Can I move my upcoming payment to next Friday?"*; an LLM can follow it, but its policy is only a prompt, which a customer can talk it out of. A banking assistant needs a **neurosymbolic** approach that combines both: natural conversation, and absolute enforcement of payment limits, scheduling rules, and [Strong Customer Authentication](https://en.wikipedia.org/wiki/Strong_customer_authentication) for high-risk changes, without adding friction to low-risk ones.
 
 See [the full problem statement and opportunity](docs/usecase.md).
 
